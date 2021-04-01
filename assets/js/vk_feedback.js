@@ -3,27 +3,21 @@ window.addEventListener("DOMContentLoaded", function(){
      * jQuery(function($) {}); добавлено для избежания конфликта
      */
     jQuery(function($) {
+        console.log(feedbackObj);
+        /**
+         * Скрипт переправлен под свои параметры
+         */
         let feedback_vk = {
             idBox: 'feedback_kupiapp',
             gid: '1',
-            count: '8',
-            style: 'standart',
+            count: feedbackObj.counts_feedbacks,
             url_wiget: 'https://feedbackcloud.kupiapp.ru/widget/widget.php',
             init: function(obj) {
                 if (!obj.id) { obj.id = this.idBox; }
                 if (!obj.gid) { obj.gid = this.gid; }
                 if (!obj.count) { obj.count = this.count; }
 
-                switch (obj.style) {
-                    case 'standart':
-                        obj.style = this.style;
-                        break;
-                    default:
-                        obj.style = this.style;
-                }
-
                 if (document.getElementById(obj.id)) {
-                    //this.addStyle(obj); //отключил подключения стилей через скрипт
                     $.ajax({
                         type: 'GET',
                         url: this.url_wiget,
@@ -45,26 +39,7 @@ window.addEventListener("DOMContentLoaded", function(){
 
                 }
                 else { console.log('Р‘Р»РѕРє СЃ id "'+obj.id+'" РЅРµ РЅР°Р№РґРµРЅ РЅР° СЃС‚СЂР°РЅРёС†Рµ'); }
-            },
-            addStyle: function(obj) {
-                /**
-                 * Выбор файла стилей, 
-                 * наверно надо отключить это, 
-                 * так как проще файл стиля подключеть через штатную функцию wordpress
-                 */
-                switch (obj.style) {
-                    case 'standart':
-                        var url_style = '../css/vk_feedback_base.css';
-                        break;
-                    case 'custom':
-                        var url_style = '../css/vk_feedback_custom.css';
-                }
-                style = document.createElement('link');
-                style.rel = 'stylesheet';
-                style.type = 'text/css';
-                style.href = url_style;
-                document.head.appendChild(style);
-            },
+            }
 
         };
 
@@ -75,13 +50,14 @@ window.addEventListener("DOMContentLoaded", function(){
                     centerMode: true,
                     //centerPadding: '160px',
                     infinite: true,
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    //arrows: false,
+                    slidesToShow: +feedbackObj.slidesToShow,
+                    slidesToScroll: +feedbackObj.slidesToScroll,
+                    arrows: !!feedbackObj.arrows_slider,
+                    dots: !!feedbackObj.dots_slider,
                     variableWidth: true,
-                    speed: 300,
-                    autoplay: true,
-                    autoplaySpeed: 2000,
+                    speed: +feedbackObj.speed,
+                    autoplay: !!feedbackObj.autoplay_slider,
+                    autoplaySpeed: +feedbackObj.autoplaySpeed,
                     responsive: [
                         {
                             breakpoint: 1025,
@@ -119,11 +95,12 @@ window.addEventListener("DOMContentLoaded", function(){
                         }
                     ]
                 });
-            };
-            let fff = document.querySelector("#feedback_kupiapp");
-            console.log(fff);
+            }
+
+            //let fff = document.querySelector("#feedback_kupiapp");
+            //console.log(fff);
         };
 
-        document.addEventListener("DOMContentLoaded", feedback_vk.init({id:'feedback_vk', gid:54415638}));
+        document.addEventListener("DOMContentLoaded", feedback_vk.init({id:'feedback_vk', gid:feedbackObj.apikey}));
     });
 });

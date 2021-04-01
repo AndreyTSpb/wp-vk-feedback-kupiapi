@@ -1,9 +1,11 @@
 <?php 
 /**
  * Plugin Name: Vk Feedback
- * Description: Отображение отзывов со стены ВКонтакте: [vk_reviews]vk reviews[/vk_reviews]
- * Plugin URI: https://github.com/AndreyTSpb/wp_plugin_yandex_map
- * Author: tynyany.ru
+ * Description: WordPress плагин для отображения отзывов со страницы ВКонтакте (где применялся плагин feedback_kupiapp)
+ * Плагин делается для отображения отзывов из групп Вконтакте, где применялось приложение "Feadback(Отзывы)", от разработчика KupiAPP.
+ * Ссылка на страницу приложения <https://vk.com/feedback_kupiapp>
+ * Plugin URI: https://github.com/AndreyTSpb/wp-vk-feedback-kupiapi
+ * Author: Andrey Tynyany
  * Version: 1.0.1
  * Author URI: http://tynyany.ru
  *
