@@ -1,0 +1,88 @@
+/**
+* Базовые стили,
+* надо будет подменять своими если они будут в базе
+*/ 
+
+#feedback_vk{
+    position: relative;
+}
+#feedback_kupiapp{
+    width: 100%;
+}
+
+#feedback_kupiapp .slick-list{
+    padding: 20px 50px !important;
+}
+
+.container_kupiapp{
+    display: inline-block;
+    width: 300px;
+    border: #0f74a8 1px solid;
+    border-radius: 15px;
+    padding: 15px; /* Поля вокруг текста */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+    margin: 15px;
+}
+.comment_kupiapp{
+    line-height: 1em;
+    height: 10em;
+    /* где max-height: = line-height: × <number-of-lines> в em */
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+}
+.user_kupiapp{
+    position: relative;
+}
+.row_kupiapp{
+    height: 55px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+.col_name_kupiapp{
+    display: inline;
+    width: 65%;
+}
+.col_date_kupiapp{
+    display: inline;
+    width: 35%;
+    font-size: 10px;
+    color: #343a40;
+}
+.user_kupiapp img.avatar_kupiapp {
+    position: absolute;
+    border-radius: 100%;
+    margin: 0 auto;
+    display: block;
+    top: -40px;
+    left: 40%;
+    width: 50px;
+    height: 50px;
+    /*transform: translateX(-50%);*/
+}
+.center_kupiapp{
+    text-align: center;
+}
+.slick-arrow{
+    background-color: #424242;
+    border-radius: 100%;
+}
+.slick-arrow:hover{
+    background-color: #f8f9fa;
+
+}
+.slick-prev:hover:before, .slick-next:hover:before {
+    font-weight: bold;
+    color: black !important;
+}
+.slick-prev:before, .slick-next:before {
+    font-weight: bold;
+    color: white !important;
+}
+.slick-prev {
+    left: -5px;
+}
+.slick-next {
+    right: 5px;
+}
